@@ -1,32 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Agent</title>
-    <style>
-        body { font-family: sans-serif; padding: 20px; }
-        #query { width: 300px; padding: 5px; }
-        button { padding: 6px 15px; cursor: pointer; }
-        #output { margin-top: 20px; white-space: pre-wrap; background: #f4f4f4; padding: 15px; border-radius: 5px; min-height: 50px; }
-    </style>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>AI Agent</h2>
-  <input id="query" placeholder="Ask something..." />
-  <button onclick="run()">Send</button>
-  <pre id="output"></pre>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    
+    <div class="app-container">
+        <header class="chat-header glass-panel">
+            <div class="header-info">
+                <h1>AI Agent</h1>
+                <p>Powered by Gemini</p>
+            </div>
+            <div class="header-status">
+                <span class="status-dot"></span>
+                <span>Online</span>
+            </div>
+        </header>
 
-  <script>
-    async function run() {
-      let q = document.getElementById("query").value;
-      document.getElementById("output").innerText = "Thinking...";
-      try {
-          let res = await fetch(`/agent?query=${encodeURIComponent(q)}`);
-          let data = await res.json();
-          document.getElementById("output").innerText = data.response;
-      } catch (e) {
-          document.getElementById("output").innerText = "Error: " + e;
-      }
-    }
-  </script>
+        <main class="chat-area" id="chatArea">
+            <div class="message ai-message" id="welcome-message">
+                <div class="avatar ai-avatar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20"></path>
+                        <path d="m17 5-10 14"></path>
+                        <path d="M15 22H9"></path>
+                        <path d="M15 2H9"></path>
+                    </svg>
+                </div>
+                <div class="message-content glass-panel">
+                    <p>Hello! I am your advanced AI Agent. How can I assist you today?</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="input-area glass-panel">
+            <form id="chatForm">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="userInput" 
+                        placeholder="Ask anything..." 
+                        rows="1" 
+                        autofocus
+                    ></textarea>
+                </div>
+                <button type="submit" id="sendBtn" class="primary-btn" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <!-- Templates -->
+    <template id="userMessageTemplate">
+        <div class="message user-message">
+            <div class="message-content user-panel">
+                <p class="text"></p>
+            </div>
+        </div>
+    </template>
+
+    <template id="aiMessageTemplate">
+        <div class="message ai-message">
+            <div class="avatar ai-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20"></path>
+                    <path d="m17 5-10 14"></path>
+                    <path d="M15 22H9"></path>
+                    <path d="M15 2H9"></path>
+                </svg>
+            </div>
+            <div class="message-content glass-panel">
+                <div class="text"></div>
+                <div class="message-actions">
+                    <button class="action-btn copy-btn" title="Copy response">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="loadingTemplate">
+        <div class="message ai-message loading-message">
+            <div class="avatar ai-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20"></path>
+                    <path d="m17 5-10 14"></path>
+                    <path d="M15 22H9"></path>
+                    <path d="M15 2H9"></path>
+                </svg>
+            </div>
+            <div class="message-content glass-panel loading-panel">
+                <div class="jumping-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
 </body>
 </html>
