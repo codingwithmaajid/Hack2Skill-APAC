@@ -2,6 +2,9 @@
 
 A modern, responsive, and beautifully designed AI Chat interface built using standard web technologies (HTML, CSS, JS) and powered by a FastAPI backend integrated with Google's Gemini 2.5 Flash model.
 
+## 🌐 Live Demo
+Check out the live application here: [https://ai-agent-xtyt.onrender.com/](https://ai-agent-xtyt.onrender.com/)
+
 ## ✨ Features
 - **Premium Glassmorphic UI**: Includes a clean, futuristic dark-mode aesthetic with backdrop blurs, soft lighting, and animated background orbs.
 - **Dynamic Typing Effect**: Simulates a human-like typing experience as the AI responds.
