@@ -1,6 +1,6 @@
 # AI Agent Web User Interface
 
-A modern, responsive, and beautifully designed AI Chat interface built using standard web technologies (HTML, CSS, JS) and powered by a FastAPI backend integrated with Google's Gemini 2.5 Flash model.
+A modern, responsive, and beautifully designed AI Chat interface built using standard web technologies (HTML, CSS, JS) and powered by a FastAPI backend integrated with Google's Gemini 2.5 Flash model
 
 ## 🌐 Live Demo
 Check out the live application here: [https://ai-agent-xtyt.onrender.com/](https://ai-agent-xtyt.onrender.com/)
