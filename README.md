@@ -28,28 +28,28 @@ Check out the live application here: [https://ai-agent-xtyt.onrender.com/](https
    cd ai-agent-project
    ```
 
-2. **Set up a Virtual Environment**
+3. **Set up a Virtual Environment**
    ```bash
    python -m venv myvenv
    source myvenv/bin/activate  # On Windows, use `myvenv\Scripts\activate`
    ```
 
-3. **Install Dependencies**
+4. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Export your API Key**
+5. **Export your API Key**
    ```bash
    export GEMINI_API_KEY="your_actual_api_key_here"
    ```
 
-5. **Start the Server**
+6. **Start the Server**
    ```bash
    python -m uvicorn main:app --port 8000
    ```
 
-6. **View the App**
+7. **View the App**
    Open your browser and navigate to `http://localhost:8000`
 
 ---
